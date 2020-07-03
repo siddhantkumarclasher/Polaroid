@@ -2,8 +2,6 @@
 
 #include "Event.h"
 
-#include <sstream>
-
 namespace Polaroid {
 
 	class POLAROID_API WindowResizeEvent : public Event

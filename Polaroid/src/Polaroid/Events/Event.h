@@ -1,9 +1,6 @@
 #pragma once
-
+#include "plpch.h"
 #include "Polaroid/Core.h"
-
-#include <string>
-#include <functional>
 
 namespace Polaroid {
 

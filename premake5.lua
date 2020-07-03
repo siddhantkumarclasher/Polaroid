@@ -10,6 +10,12 @@ workspace "Polaroid"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
+-- Include directories relative to root folder (solution directory)
+IncludeDir = {}
+IncludeDir["GLFW"] = "Polaroid/vendor/GLFW/include"
+
+include "Polaroid/vendor/GLFW"
+
 project "Polaroid"
 	location "Polaroid"
 	kind "SharedLib"
@@ -17,6 +23,9 @@ project "Polaroid"
 
 	targetdir ("bin/" .. outputdir .. "/%{prj.name}")
 	objdir ("bin-int/" .. outputdir .. "/%{prj.name}")
+
+	pchheader "plpch.h"
+	pchsource "Polaroid/src/plpch.cpp"
 
 	files
 	{
@@ -26,8 +35,15 @@ project "Polaroid"
 
 	includedirs
 	{
+		"%{prj.name}/src",
 		"%{prj.name}/vendor/spdlog/include",
-		"%{prj.name}/src"
+		"%{IncludeDir.GLFW}"
+	}
+
+	links
+	{
+		"GLFW",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"

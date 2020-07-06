@@ -4,10 +4,10 @@
 
 namespace Polaroid {
 
-	class POLAROID_API WindowResizeEvent : public Event
+	class POLAROID_API WindowResizedEvent : public Event
 	{
 	public:
-		WindowResizeEvent(unsigned int width, unsigned int height)
+		WindowResizedEvent(unsigned int width, unsigned int height)
 			: m_Width(width), m_Height(height) {}
 
 		inline unsigned int GetWidth() const { return m_Width; }
@@ -16,7 +16,7 @@ namespace Polaroid {
 		std::string ToString() const override
 		{
 			std::stringstream ss;
-			ss << "WindowResizeEvent : " << m_Width << " , " << m_Height;
+			ss << "WindowResizedEvent : " << m_Width << " , " << m_Height;
 			return ss.str();
 		}
 
@@ -26,10 +26,10 @@ namespace Polaroid {
 		unsigned int m_Width, m_Height;
 	};
 
-	class POLAROID_API WindowClosedEvent : public Event
+	class POLAROID_API WindowCloseEvent : public Event
 	{
 	public:
-		WindowClosedEvent() {}
+		WindowCloseEvent() {}
 		
 		EVENT_CLASS_TYPE(WindowClose)
 		EVENT_CLASS_CATEGORY(EventCategoryApplication)

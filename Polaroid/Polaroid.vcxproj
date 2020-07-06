@@ -76,18 +76,20 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>plpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PL_PLATFORM_WINDOWS;PL_BUILD_DLL;PL_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PL_PLATFORM_WINDOWS;PL_BUILD_DLL;GLFW_INCLUDE_NONE;PL_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Debug-windows-x86_64\Polaroid\Polaroid.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -96,22 +98,24 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>plpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PL_PLATFORM_WINDOWS;PL_BUILD_DLL;PL_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PL_PLATFORM_WINDOWS;PL_BUILD_DLL;GLFW_INCLUDE_NONE;PL_RELEASE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Release-windows-x86_64\Polaroid\Polaroid.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -120,22 +124,24 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dist|x64'">
     <ClCompile>
-      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>plpch.h</PrecompiledHeaderFile>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>PL_PLATFORM_WINDOWS;PL_BUILD_DLL;PL_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>vendor\spdlog\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>PL_PLATFORM_WINDOWS;PL_BUILD_DLL;GLFW_INCLUDE_NONE;PL_DIST;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;vendor\spdlog\include;vendor\GLFW\include;vendor\Glad\include;vendor\imgui;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
-      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\bin\Dist-windows-x86_64\Polaroid\Polaroid.lib</ImportLibrary>
     </Link>
     <PostBuildEvent>
@@ -147,11 +153,41 @@
     <ClInclude Include="src\Polaroid\Application.h" />
     <ClInclude Include="src\Polaroid\Core.h" />
     <ClInclude Include="src\Polaroid\EntryPoint.h" />
+    <ClInclude Include="src\Polaroid\Events\ApplicationEvent.h" />
+    <ClInclude Include="src\Polaroid\Events\Event.h" />
+    <ClInclude Include="src\Polaroid\Events\KeyEvent.h" />
+    <ClInclude Include="src\Polaroid\Events\MouseEvent.h" />
+    <ClInclude Include="src\Polaroid\ImGui\ImGuiLayer.h" />
+    <ClInclude Include="src\Polaroid\Layer.h" />
+    <ClInclude Include="src\Polaroid\LayerStack.h" />
     <ClInclude Include="src\Polaroid\Log.h" />
+    <ClInclude Include="src\Polaroid\Platform\OpenGl\ImGuiOpenGLRenderer.h" />
+    <ClInclude Include="src\Polaroid\Platform\Windows\WindowsWindow.h" />
+    <ClInclude Include="src\Polaroid\Window.h" />
+    <ClInclude Include="src\plpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Polaroid\Application.cpp" />
+    <ClCompile Include="src\Polaroid\ImGui\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Polaroid\Layer.cpp" />
+    <ClCompile Include="src\Polaroid\LayerStack.cpp" />
     <ClCompile Include="src\Polaroid\Log.cpp" />
+    <ClCompile Include="src\Polaroid\Platform\OpenGl\ImGuiOpenGLRenderer.cpp" />
+    <ClCompile Include="src\Polaroid\Platform\Windows\WindowsWindow.cpp" />
+    <ClCompile Include="src\plpch.cpp">
+      <PrecompiledHeader>Create</PrecompiledHeader>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="vendor\GLFW\GLFW.vcxproj">
+      <Project>{154B857C-0182-860D-AA6E-6C109684020F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\Glad\Glad.vcxproj">
+      <Project>{BDD6857C-A90D-870D-52FA-6C103E10030F}</Project>
+    </ProjectReference>
+    <ProjectReference Include="vendor\ImGui\imGui.vcxproj">
+      <Project>{E00FA80F-4C24-D0C0-15A6-73208179CCF1}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

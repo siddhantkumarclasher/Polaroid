@@ -4,6 +4,21 @@
     <Filter Include="Polaroid">
       <UniqueIdentifier>{1FFECEB3-0BCB-29BF-34E4-176720105F4D}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Polaroid\Events">
+      <UniqueIdentifier>{23B1B358-8F3C-211D-984D-A41104587D1D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Polaroid\ImGui">
+      <UniqueIdentifier>{894EEBE3-751C-DFE9-5EB0-4F104A1DBB4E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Polaroid\Platform">
+      <UniqueIdentifier>{538D8270-BFA3-8006-081B-0C287470518E}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Polaroid\Platform\OpenGl">
+      <UniqueIdentifier>{479B3648-33C0-85C8-5C0B-6B58488F84E6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Polaroid\Platform\Windows">
+      <UniqueIdentifier>{8DDA25A7-F99C-5931-424D-E8BDAE4E320F}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Polaroid.h" />
@@ -16,16 +31,63 @@
     <ClInclude Include="src\Polaroid\EntryPoint.h">
       <Filter>Polaroid</Filter>
     </ClInclude>
+    <ClInclude Include="src\Polaroid\Events\ApplicationEvent.h">
+      <Filter>Polaroid\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polaroid\Events\Event.h">
+      <Filter>Polaroid\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polaroid\Events\KeyEvent.h">
+      <Filter>Polaroid\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polaroid\Events\MouseEvent.h">
+      <Filter>Polaroid\Events</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polaroid\ImGui\ImGuiLayer.h">
+      <Filter>Polaroid\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polaroid\Layer.h">
+      <Filter>Polaroid</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polaroid\LayerStack.h">
+      <Filter>Polaroid</Filter>
+    </ClInclude>
     <ClInclude Include="src\Polaroid\Log.h">
       <Filter>Polaroid</Filter>
     </ClInclude>
+    <ClInclude Include="src\Polaroid\Platform\OpenGl\ImGuiOpenGLRenderer.h">
+      <Filter>Polaroid\Platform\OpenGl</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polaroid\Platform\Windows\WindowsWindow.h">
+      <Filter>Polaroid\Platform\Windows</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Polaroid\Window.h">
+      <Filter>Polaroid</Filter>
+    </ClInclude>
+    <ClInclude Include="src\plpch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Polaroid\Application.cpp">
       <Filter>Polaroid</Filter>
     </ClCompile>
+    <ClCompile Include="src\Polaroid\ImGui\ImGuiLayer.cpp">
+      <Filter>Polaroid\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Polaroid\Layer.cpp">
+      <Filter>Polaroid</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Polaroid\LayerStack.cpp">
+      <Filter>Polaroid</Filter>
+    </ClCompile>
     <ClCompile Include="src\Polaroid\Log.cpp">
       <Filter>Polaroid</Filter>
     </ClCompile>
+    <ClCompile Include="src\Polaroid\Platform\OpenGl\ImGuiOpenGLRenderer.cpp">
+      <Filter>Polaroid\Platform\OpenGl</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Polaroid\Platform\Windows\WindowsWindow.cpp">
+      <Filter>Polaroid\Platform\Windows</Filter>
+    </ClCompile>
+    <ClCompile Include="src\plpch.cpp" />
   </ItemGroup>
 </Project>

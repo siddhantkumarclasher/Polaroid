@@ -7,6 +7,7 @@
 #include "Polaroid/Events/Event.h"
 #include "Polaroid/Events/ApplicationEvent.h"
 
+#include "Polaroid/ImGui/ImGuiLayer.h"
 
 namespace Polaroid {
 
@@ -31,6 +32,7 @@ namespace Polaroid {
 		bool OnWindowClose(WindowCloseEvent& e);
 
 		std::unique_ptr<Window> m_Window;
+		ImGuiLayer* m_ImGuiLayer;
 		bool m_Running = true;
 		LayerStack m_LayerStack;
 	private:
@@ -39,5 +41,4 @@ namespace Polaroid {
 
 	// To be defined in client
 	Application* CreateApplication();
-
 }

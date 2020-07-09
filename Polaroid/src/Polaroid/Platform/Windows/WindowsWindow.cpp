@@ -16,11 +16,6 @@ namespace Polaroid {
 		PL_CORE_ERROR("GLFW Error ({0}): {1}", error, description);
 	}
 
-	Window* Window::Create(const WindowProps& props)
-	{
-		return new WindowsWindow(props);
-	}
-
 	WindowsWindow::WindowsWindow(const WindowProps& props)
 	{
 		Init(props);
@@ -29,6 +24,11 @@ namespace Polaroid {
 	WindowsWindow::~WindowsWindow()
 	{
 		Shutdown();
+	}
+
+	Window* Window::Create(const WindowProps& props)
+	{
+		return new Polaroid::WindowsWindow(props);
 	}
 
 	void WindowsWindow::Init(const WindowProps& props)

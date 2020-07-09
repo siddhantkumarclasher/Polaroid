@@ -5,6 +5,8 @@
 
 #include "glad/glad.h"
 
+#include "Input.h"
+
 namespace Polaroid {
 
 #define BIND_EVENT_FN(x) std::bind(&Application::x, this, std::placeholders::_1)
@@ -18,6 +20,9 @@ namespace Polaroid {
 
 		m_Window = std::unique_ptr<Window>(Window::Create());
 		m_Window->SetEventCallback(BIND_EVENT_FN(OnEvent));
+	
+		m_ImGuiLayer = new ImGuiLayer();
+		PushOverlay(m_ImGuiLayer);
 	}
 
 	Application::~Application()
@@ -27,13 +32,11 @@ namespace Polaroid {
 	void Application::PushLayer(Layer* layer)
 	{
 		m_LayerStack.PushLayer(layer);
-		layer->OnAttach();
 	}
 
 	void Application::PushOverlay(Layer* layer)
 	{
 		m_LayerStack.PushOverlay(layer);
-		layer->OnAttach();
 	}
 
 	void Application::OnEvent(Event& e)
@@ -60,7 +63,12 @@ namespace Polaroid {
 
 			for (Layer* layer : m_LayerStack)
 				layer->OnUpdate();
-				
+			
+			m_ImGuiLayer->Begin();
+			for (Layer* layer : m_LayerStack)
+				layer->OnImGuiRender();
+			m_ImGuiLayer->End();
+			
 			m_Window->OnUpdate();
 		}
 	}

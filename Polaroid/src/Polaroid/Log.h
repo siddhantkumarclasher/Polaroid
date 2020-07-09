@@ -33,3 +33,4 @@ namespace Polaroid {
 #define PL_INFO(...) ::Polaroid::Log::GetClientLogger()->info(__VA_ARGS__)
 #define PL_TRACE(...) ::Polaroid::Log::GetClientLogger()->trace(__VA_ARGS__)
 #define PL_FATAL(...) ::Polaroid::Log::GetClientLogger()->fatal(__VA_ARGS__)
+

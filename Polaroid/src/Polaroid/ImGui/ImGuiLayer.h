@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Polaroid/Layer.h"
+#include "Polaroid/Core/Layer.h"
 
 #include "Polaroid/Events/ApplicationEvent.h"
 #include "Polaroid/Events/KeyEvent.h"
@@ -12,7 +12,7 @@ namespace Polaroid {
 	{
 	public:
 		ImGuiLayer();
-		~ImGuiLayer();
+		~ImGuiLayer() = default;
 
 		virtual void OnAttach() override;
 		virtual void OnDetach() override;

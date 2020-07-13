@@ -92,4 +92,5 @@ namespace Polaroid {
 
 		EVENT_CLASS_TYPE(MouseButtonReleased)
 	};
+
 }

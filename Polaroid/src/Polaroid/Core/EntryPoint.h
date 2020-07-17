@@ -1,4 +1,5 @@
 #pragma once
+#include "Polaroid/Core/Core.h"
 
 #ifdef PL_PLATFORM_WINDOWS
 

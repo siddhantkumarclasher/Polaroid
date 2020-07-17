@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Event.h"
+#include "Polaroid/Events/Event.h"
 
 namespace Polaroid {
 

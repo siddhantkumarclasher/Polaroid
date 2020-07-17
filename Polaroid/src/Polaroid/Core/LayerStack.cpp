@@ -1,16 +1,15 @@
 #include "plpch.h"
-#include "LayerStack.h"
+#include "Polaroid/Core/LayerStack.h"
 
 namespace Polaroid {
-
-	LayerStack::LayerStack()
-	{
-	}
 
 	LayerStack::~LayerStack()
 	{
 		for (Layer* layer : m_Layers)
+		{
+			layer->OnDetach();
 			delete layer;
+		}
 	}
 
 	void LayerStack::PushLayer(Layer* layer)

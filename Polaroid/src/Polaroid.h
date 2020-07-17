@@ -2,6 +2,8 @@
 
 // For use by Polaroid applications
 
+#include "Polaroid/Core/Core.h"
+
 #include "Polaroid/Core/Application.h"
 #include "Polaroid/Core/Layer.h"
 #include "Polaroid/Core/Log.h"
@@ -17,6 +19,7 @@
 
 // ---Renderer------------------------
 #include "Polaroid/Renderer/Renderer.h"
+#include "Polaroid/Renderer/Renderer2D.h"
 #include "Polaroid/Renderer/RenderCommand.h"
 
 #include "Polaroid/Renderer/Buffer.h"
@@ -25,8 +28,4 @@
 #include "Polaroid/Renderer/VertexArray.h"
 
 #include "Polaroid/Renderer/OrthographicCamera.h"
-// -----------------------------------
-
-//---Entry Point----------------
-#include "Polaroid/Core/EntryPoint.h"
 //------------------------------

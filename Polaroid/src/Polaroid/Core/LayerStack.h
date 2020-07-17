@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Polaroid/Core/Core.h"
-#include "Layer.h"
+#include "Polaroid/Core/Layer.h"
 
 #include <vector>
 
@@ -10,7 +10,7 @@ namespace Polaroid {
 	class POLAROID_API LayerStack
 	{
 	public:
-		LayerStack();
+		LayerStack() = default;
 		~LayerStack();
 
 		void PushLayer(Layer* layer);

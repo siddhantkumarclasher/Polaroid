@@ -1,8 +1,8 @@
 #pragma once
 
-#include "Core.h"
+#include "Polaroid/Core/Core.h"
 
-#include "Window.h"
+#include "Polaroid/Core/Window.h"
 #include "Polaroid/Core/LayerStack.h"
 #include "Polaroid/Events/Event.h"
 #include "Polaroid/Events/ApplicationEvent.h"
@@ -17,7 +17,7 @@ namespace Polaroid {
 	{
 	public:
 		Application();
-		virtual ~Application() = default;
+		virtual ~Application();
 
 		void Run();
 
